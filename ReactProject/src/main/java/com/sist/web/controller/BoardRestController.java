@@ -46,6 +46,20 @@ public class BoardRestController {
 	@GetMapping("board_hit")
 	public List<BoardVO> board_hit() {
 		List<BoardVO> list = dao.boardHitListData();
+		
+		int max=3;
+		int max2= 8;
+		for(BoardVO e : list) {
+			String content = e.getContent();
+			String subject = e.getSubject();
+			
+			if(content!=null && content.length()>max2) {
+				e.setContent(content.substring(0, max2)+"...");
+			}
+			if(subject!=null && subject.length()>max) {
+				e.setSubject(subject.substring(0, max)+"...");
+			}
+		}
 		return list;
 	}
 	

@@ -41,6 +41,7 @@ public class TravelRestController {
 	@GetMapping("travel_hit")
 	public List<TravelEntity> travel_hit() {
 		List<TravelEntity> list = dao.travelHitList();
+		
 		return list;
 	}
 	
